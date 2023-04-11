@@ -34,6 +34,10 @@ module.exports = {
                 test: /\.(scss|css)$/,
                 use: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader'],
             },
-        ]
+        ],
+    },
+    devServer: {
+        watchFiles: path.join(__dirname, 'src'),
+        port: 3000,
     },
 }
