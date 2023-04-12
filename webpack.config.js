@@ -1,5 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const FileManagerPlugin = require('filemanager-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
     mode: 'development',
@@ -7,12 +9,23 @@ module.exports = {
     output: {
         filename: '[name].bundle.js',
         path: path.resolve(__dirname, './dist'),
+        assetModuleFilename: path.join('images', '[name].[contenthash][ext]'),
     },
     plugins: [
         new HtmlWebpackPlugin({
             title: 'webpack Boilerplate',
             template: path.resolve(__dirname, './src/template.html'),
             filename: 'index.html',
+        }),
+        new FileManagerPlugin({
+            events: {
+                onStart: {
+                    delete: ['dist'],
+                },
+            },
+        }),
+        new MiniCssExtractPlugin({
+            filename: '[name].[contenthash].css',
         }),
     ],
     module: {
@@ -23,8 +36,15 @@ module.exports = {
                 use: ['babel-loader'],
             },
             {
-                test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
+                test: /\.(png|jpg|jpeg|gif)$/i,
                 type: 'asset/resource',
+            },
+            {
+                test: /\.svg$/,
+                type: 'asset/resource',
+                generator: {
+                    filename: path.join('icons', '[name].[contenthash][ext]'),
+                },
             },
             {
                 test: /\.(woff(2)?|eot|ttf|otf|svg|)$/,
@@ -32,7 +52,7 @@ module.exports = {
             },
             {
                 test: /\.(scss|css)$/,
-                use: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader'],
+                use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'sass-loader'],
             },
         ],
     },

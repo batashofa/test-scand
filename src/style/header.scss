@@ -1,0 +1,46 @@
+.header {
+  @extend %container;
+  font-family: $font-open;
+  background: $color-light;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 28px;
+
+  &__logo {
+    padding: 5px 0 0 0;
+  }
+
+  &__navbar {
+    display: flex;
+    align-items: baseline;
+    margin: 0 9px 0 0;
+
+    &_item {
+      font-style: normal;
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 28px;
+      width: 105px;
+      background-color: $color-light;
+      text-align: center;
+      border: none;
+    }
+    &_btn {
+      font-style: normal;
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 28px;
+      width: 128px;
+      height: 40px;
+      background-color: $color-light;
+      text-align: center;
+      display: inline-block;
+      cursor: pointer;
+      border: 2px solid $color-black;
+      border-radius: 24px;
+    }
+  }
+}
