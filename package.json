@@ -10,6 +10,7 @@
   "author": "Nastassia Batashova",
   "license": "ISC",
   "dependencies": {
+    "@fontsource/manrope": "^4.5.13",
     "@webpack-cli/init": "^1.0.3",
     "node-sass": "^8.0.0",
     "normalize-scss": "^7.0.1",
