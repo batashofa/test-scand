@@ -6,11 +6,12 @@
   &-thoughts {
     width: 100%;
     text-align: center;
+    position: relative;
 
     &__head {
       font-size: 20px;
       line-height: 32px;
-      padding-top: 15px;
+      padding-top: 17px;
     }
 
     &__title {
@@ -26,13 +27,13 @@
       display: flex;
       text-align: start;
       column-gap: 100px;
-      padding-top: 66px;
+      padding-top: 65px;
 
       &-text {
         padding-top: 69px;
         font-size: 16px;
         line-height: 28px;
-        color: $color-gray;
+        color: $color-black;
         width: 100%;
 
         span {
@@ -40,7 +41,8 @@
           font-size: 16px;
           line-height: 28px;
           color: $color-black;
-          padding-right: 15px;
+          padding-right: 11px;
+          letter-spacing: 0.8px
         }
 
         p {
@@ -50,7 +52,6 @@
           font-size: 48px;
           line-height: 72px;
           margin: 13px 0 0 0;
-          display: block;
           width: 100%;
           letter-spacing: 0;
         }
@@ -59,7 +60,7 @@
           column-gap: 12px;
           display: flex;
           align-items: center;
-          padding-top: 18px;
+          padding-top: 20px;
         }
       }
 
@@ -71,21 +72,21 @@
         }
       }
     }
-  }
 
-  &-thoughts::after {
-    content: '';
-    position: absolute;
-    width: 86%;
-    height: 1px;
-    left: 100px;
-    top: 824px;
-    background: $color-black;
+    &__line {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 1px;
+      left: 0;
+      bottom: -8.1vh;
+      background: $color-black;
+    }
   }
 
   &-latest {
     width: 83.5%;
-    margin: 165px auto 120px auto;
+    margin: 164px auto 122px auto;
 
     &__title {
       font-family: $font-manrope;
@@ -100,11 +101,12 @@
     &__cards {
       display: grid;
       column-gap: 50px;
-      row-gap: 93px;
+      row-gap: 82px;
       grid-template-areas:
         "p1 p2 p3"
         "p4 p5 p6";
       grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(2, 50.1vh);
     }
 
     &__card:nth-of-type(1) {
@@ -121,42 +123,39 @@
 
     &__card {
       height: 100%;
-      padding-top: 38px;
-      max-height: 424px;
+      padding-top: 40px;
+      position: relative;
 
       &-text {
-        padding-top: 21px;
+        color: $color-gray;
+        padding-top: 19px;
         font-size: 16px;
         font-weight: 700;
         line-height: 28px;
-        color: $color-gray;
         position: relative;
-        height: 46%;
 
         span {
           font-weight: 700;
           font-size: 16px;
           line-height: 28px;
           color: $color-black;
-          padding-right: 16px;
+          padding-right: 13px;
+          letter-spacing: 0.8px
         }
 
         p {
+          color: $color-black;
           font-style: normal;
           font-weight: 400;
           font-size: 20px;
           line-height: 32px;
-          color: $color-black;
           margin: 13px 0 0 0;
+          display: -webkit-box;
+          -webkit-line-clamp: 3;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
         }
 
-        div {
-          column-gap: 12px;
-          display: flex;
-          align-items: center;
-          position: absolute;
-          bottom: 0;
-        }
       }
 
       &-img {
@@ -164,17 +163,25 @@
           width: 100%;
         }
       }
+      &-author {
+        color: $color-black;
+        column-gap: 12px;
+        display: flex;
+        align-items: center;
+        position: absolute;
+        bottom: 0;
+      }
     }
 
 
     &__button {
-      padding-top: 146px;
+      padding-top: 138px;
       text-align: center;
 
 
       button {
         background: $color-light;
-        padding: 16px 56px;
+        padding: 16px 58px;
         gap: 8px;
         border: 2px solid $color-black;
         border-radius: 56px;
@@ -216,11 +223,11 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 45px 0 0;
-      column-gap: 24px;
+      padding: 44px 0 0;
+      column-gap: 20px;
 
       input {
-        width: 370px;
+        width: 30.4%;
         height: 56px;
         border: 2px solid $color-light;
         border-radius: 240px;
@@ -249,7 +256,7 @@
       }
 
       button {
-        width: 210px;
+        width: 18%;
         height: 62px;
         background: $color-green;
         border: 2px solid #65E4A3;
@@ -272,8 +279,20 @@
   }
 }
 
+@media (max-width: 1350px) {
+  .main-thoughts__card-text {
+    padding-top: 10px;
+  }
+}
+
 @media (max-width: 1200px) {
   .main {
+    &-latest {
+      &__title {
+        font-size: 42px;
+      }
+    }
+
     &-thoughts {
       &__card {
         column-gap: 55px;
@@ -289,21 +308,16 @@
       }
     }
 
-    &-thoughts::after {
-      top: 770px;
-      width: 80.5%;
-
+    &-template {
+      &__title {
+        font-size: 42px;
+      }
     }
 
     &-latest {
       margin: 130px auto 90px auto;
       width: 100%;
 
-      &__card {
-        &-text {
-          height: 42%;
-        }
-      }
     }
   }
 }
@@ -315,52 +329,47 @@
     &-thoughts {
       &__card {
         &-text p {
-          font-size: 38px;
-          line-height: 50px;
+          font-size: 36px;
+          line-height: 42px;
         }
       }
-    }
-
-    &-thoughts::after {
-      top: 710px;
     }
 
     &-latest {
-      margin: 110px auto 120px auto;
+      margin: 110px auto 80px auto;
 
       &__button {
+        padding-top: 145px;
+
         button {
-          font-size: 16px;
+          font-size: 18px;
         }
       }
 
-      &__cards {
-        display: grid;
-        column-gap: 50px;
-        row-gap: 97px;
-        grid-template-areas:
-        "p1 p2"
-        "p3 p4"
-        "p5 p6";
-        grid-template-columns: repeat(2, 1fr);
+      &__card-text {
+        p {
+          font-size: 18px;
+        }
       }
     }
 
     &-template {
       &__title {
-        font-size: 38px;
+        font-size: 36px;
         line-height: 60px;
       }
 
       &__form {
         input {
+          width: 40%;
           height: 50px;
-          font-size: 16px;
+          font-size: 18px;
         }
 
         button {
+          width: 40%;
           height: 55px;
-          font-size: 16px;
+          font-size: 18px;
         }
       }
     }
@@ -371,7 +380,15 @@
   .main {
     &-thoughts {
       &__title {
-        font-size: 54px;
+        font-size: 50px;
+      }
+    }
+
+    &-latest {
+      margin: 110px auto 80px auto;
+
+      &__button {
+        padding-top: 130px;
       }
     }
   }
@@ -379,14 +396,61 @@
 
 @media (max-width: 768px) {
   .main {
-    padding: 15px 50px 0;
+    padding: 15px 40px 0;
+
+    &-thoughts {
+      &__title {
+        font-size: 42px;
+      }
+
+      &__card {
+        padding-top: 40px;
+
+        &-text {
+          font-size: 14px;
+
+          span {
+            font-size: 14px;
+
+          }
+
+          p {
+            font-size: 30px;
+            line-height: 35px;
+          }
+        }
+      }
+    }
 
     &-latest {
-      margin: 110px auto 70px auto;
+      margin: 110px auto 50px auto;
+
+      &__title {
+        font-size: 30px;
+      }
+
+      &__cards {
+        display: grid;
+        column-gap: 50px;
+        row-gap: 70px;
+        grid-template-areas:
+          "p1 p2"
+          "p3 p4"
+          "p5 p6";
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      &__button {
+        padding-top: 110px;
+      }
 
       &__card {
         &-text {
-          height: 50%;
+          font-size: 14px;
+
+          span {
+            font-size: 14px;
+          }
 
           p {
             font-size: 16px;
@@ -395,43 +459,28 @@
       }
     }
 
-    &-thoughts {
-      &__title {
-        font-size: 48px;
-      }
-
-      &__card {
-        height: 80%;
-
-        &-text p {
-          font-size: 30px;
-          line-height: 35px;
-        }
-      }
-    }
-
-    &-thoughts::after {
-      top: 590px;
-      width: 71%;
-    }
-
     &-template {
-      height: 330px;
+      height: 350px;
 
       &__title {
-        font-size: 32px;
+        font-size: 30px;
         line-height: 50px;
+        padding-top: 55px;
       }
 
       &__form {
+        flex-direction: column;
+        row-gap: 20px;
+
+
         input {
-          width: 320px;
+          width: 70%;
           height: 40px;
           font-size: 14px;
         }
 
         button {
-          width: 190px;
+          width: 70%;
           height: 45px;
           font-size: 14px;
         }
@@ -445,28 +494,120 @@
 }
 
 
-@media (max-width: 540px) {
+@media (max-width: 580px) {
   .main {
     &-thoughts {
+      &__card {
+        flex-direction: column;
+        padding-top: 30px;
+
+        &-text {
+          text-align: center;
+
+          p {
+            font-size: 24px;
+          }
+        }
+      }
+
       &__title {
         font-size: 32px;
       }
+
     }
 
     &-latest {
-      &__cards {
-        display: grid;
-        column-gap: 50px;
-        row-gap: 97px;
-        grid-template-areas:
-        "p1"
-        "p2"
-        "p3"
-        "p4"
-        "p5"
-         "p6";
-        grid-template-columns: repeat(1, 1fr);
+      &__title {
+        font-size: 24px;
+      }
+
+      &__card {
+        padding: 0;
+
+      }
+    }
+
+    &-template {
+      &__title {
+        font-size: 24px;
+        line-height: 42px;
       }
     }
   }
 }
+
+
+
+@media (max-width: 390px) {
+  .main {
+    padding: 15px 30px 0;
+
+    &-thoughts {
+      &__title {
+        font-size: 24px;
+      }
+
+      &__card {
+        &-text {
+          p {
+            font-size: 18px;
+          }
+        }
+      }
+
+    }
+
+    &-latest {
+      &__title {
+        font-size: 18px;
+      }
+
+      &__cards {
+        display: grid;
+        column-gap: 50px;
+        row-gap: 50px;
+        grid-template-areas:
+          "p1"
+          "p2"
+          "p3"
+          "p4"
+          "p5"
+          "p6";
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(6, 420px);
+      }
+
+    }
+
+    &-template {
+      &__title {
+        font-size: 18px;
+      }
+    }
+
+  }
+}
+
+@media (max-width: 320px) {
+  .main {
+    &-thoughts {
+      &__line {
+        bottom: -4.1vh;
+      }
+    }
+
+    &-latest {
+      margin: 40px auto 40px auto;
+
+
+      &__button {
+        padding-top: 85px;
+
+        button {
+          padding: 10px 58px
+        }
+      }
+    }
+  }
+}
+

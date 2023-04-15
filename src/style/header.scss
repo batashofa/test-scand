@@ -75,7 +75,11 @@
 
 @media (max-width: 768px) {
   .header {
-    padding: 50px 40px 0 40px;
+    padding: 40px 40px 0 40px;
+
+    &__logo {
+      width: 17%;
+    }
 
     &__navbar {
       display: none;
@@ -86,12 +90,11 @@
       font-weight: 600;
       font-size: 16px;
       line-height: 28px;
-      width: 128px;
       height: 40px;
       text-align: center;
       display: inline-block;
       cursor: pointer;
-      top: 48px;
+      top: 36px;
       right: 0px;
 
       &_button {
@@ -216,8 +219,12 @@
   }
 }
 
-@media (max-width: 540px) {
+@media (max-width: 580px) {
   .header {
+    &__logo {
+      width: 25%;
+    }
+
     &__burger-menu {
       &_lines::before {
         top: -10px;
@@ -232,6 +239,44 @@
       &_lines {
         width: 35px;
       }
+    }
+  }
+}
+
+@media (max-width: 390px) {
+  .header {
+    padding: 20px 20px 0 20px;
+
+    &__burger-menu {
+      top: 17px;
+      right: 0;
+
+      &_lines::before {
+        top: -8px;
+      }
+
+      &_lines::after {
+        top: 8px;
+      }
+
+      &_lines::before,
+      &_lines::after,
+      &_lines {
+        width: 30px;
+      }
+
+      &_lines {
+        top: 36%;
+      }
+
+      &_link {
+        padding: 10px 25px;
+        font-size: 16px;
+      }
+    }
+
+    &__burger-menu_active .header__burger-menu_nav {
+      right: 7%;
     }
   }
 }

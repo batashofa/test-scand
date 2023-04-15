@@ -37,19 +37,36 @@
     font-style: normal;
     font-weight: 400;
     font-size: 20px;
-    line-height: 32px;
-    column-gap: 156px;
-    letter-spacing: 0;
+    line-height: 39px;
+    column-gap: 152px;
     max-height: 239px;
+    letter-spacing: 1px;
+    position: relative;
 
     &_item {
       display: flex;
       flex-direction: column;
-      row-gap: 36px;
+      justify-content: space-between;
 
       &-title {
         font-weight: 700;
       }
+    }
+
+    &_hiring {
+      position: absolute;
+      top: 59%;
+      right: 32%;
+      font-family: $font-open;
+      font-style: normal;
+      font-weight: 700;
+      font-size: 13px;
+      line-height: 28px;
+      background-color: $color-green;
+      width: 72px;
+      height: 30px;
+      border-radius: 120px;
+      text-align: center;
     }
   }
 }
@@ -64,14 +81,21 @@
 @media (max-width: 1024px) {
   .footer {
     padding: 50px 50px;
-
     column-gap: 100px;
-
-    &__logo {
-    }
 
     &__table {
       column-gap: 130px;
+      font-size: 18px;
+    }
+
+    &__logo {
+      div {
+        padding: 20px 0 0 0;
+      }
+
+      p {
+        padding: 20px 0 0 0;
+      }
     }
   }
 }
@@ -92,10 +116,13 @@
 
     &__table {
       column-gap: 90px;
-      font-size: 16px;
-
       &_item {
         row-gap: 20px;
+      }
+
+      &_hiring {
+        top: 57.5%;
+        right: 25%;
       }
     }
   }
@@ -104,16 +131,19 @@
 
 @media (max-width: 768px) {
   .footer {
-    column-gap: 50px;
+    padding: 40px;
 
-    &__logo div {
-      font-size: 16px;
+    &__logo-item {
+      div {
+        font-size: 16px;
+      }
     }
 
     &__table {
       font-size: 16px;
     }
   }
+
 }
 
 @media (max-width: 680px) {
@@ -123,6 +153,14 @@
     &__logo {
       text-align: center;
       width: 100%;
+
+      div {
+        margin: auto;
+      }
+
+      &-item {
+        width: 25%;
+      }
     }
 
     &__table {
@@ -130,6 +168,40 @@
       column-gap: 50px;
       justify-content: space-around;
       padding: 20px 0 0 0;
+
+      &_hiring {
+        top: 60.5%;
+        right: 24%;
+      }
+    }
+  }
+}
+
+@media (max-width: 580px) {
+  .footer {
+    height: 75vh;
+    &__table {
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      &_item {
+        row-gap: 0;
+      }
+      &_hiring {
+        top: 99.5%;
+        right: 15%;
+      }
+    }
+  }
+}
+
+@media (max-width: 390px) {
+  .footer {
+    padding: 30px;
+    &__table {
+      &_hiring {
+        right: 7%;
+      }
     }
   }
 }
