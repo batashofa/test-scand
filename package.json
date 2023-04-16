@@ -12,6 +12,7 @@
   "dependencies": {
     "@fontsource/manrope": "^4.5.13",
     "@webpack-cli/init": "^1.0.3",
+    "copy-webpack-plugin": "^11.0.0",
     "node-sass": "^8.0.0",
     "normalize-scss": "^7.0.1",
     "webpack-cli": "^4.10.0"
